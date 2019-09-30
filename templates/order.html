@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Order</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes">
+        <!--  -->
+    </head>
+    <body>
+        <table>
+            <form action="{{url_for('getOrder')}}" method="POST">
+                <thead>                    
+                    <tr>
+                            <td>ID</td>
+                            <td>จำนวน</td>
+                            <td> </td>
+                    </tr>                    
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input name="id" type="text"></td>
+                        <td><input name="amount"></td>
+                        <td><button type="submit">สั่ง</button></td>
+                    </tr>
+                </tbody>
+            </form>
+        </table>
+        <table>
+                <thead>
+                    <tr>
+                        <td>id</td>
+                        <td>รายการ</td>
+                        <td>ราคา</td>
+                        <td>จำนวน</td>
+                        <td> </td>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in dataO %}
+                    <tr>                    
+                        <td>{{data.id}}</td>
+                        <td>{{data.name}}</td>
+                        <td>{{data.price}}</td>
+                        <td>{{data.amount}}</td>
+                        <td><a href="/deleteorder/{{data.id}}">ลบรายการ</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tr>
+                    <td><a href="checkbill">Check Bill</a></td>
+                </tr>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <td>id</td>
+                        <td>รายการ</td>
+                        <td>ราคา</td>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in dataH %}
+                    <tr>
+                        <td>{{data.id}}</td>
+                        <td>{{data.name}}</td>
+                        <td>{{data.price}}</td>                        
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        
+    </body>
+</html>

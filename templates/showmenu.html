@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Milk Cafe</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes">
+        <link rel="stylesheet" href="template.css"/>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <td>id</td>
+                    <td>ชื่อสินค้า</td>
+                    <td>ราคา</td>
+                    <td> </td>
+                </tr>
+            </thead>
+            <tbody>
+                <form action="{{url_for('Push')}}" method="POST">
+                <tr>
+                    <td>
+                        <input name="id" type="text">
+                    </td>
+                    <td>
+                        <input name="name" type="text">
+                    </td>
+                    <td>
+                        <input name="price" type="text">
+                    </td>
+                    <td>
+                        <button type="submit">บันทึก</button>
+                    </td>
+                </tr>
+                </form>
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <td>id</td>
+                    <td>รายการ</td>
+                    <td>ราคา</td>
+                    <td>คำสั่ง</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in dataH %}
+                <tr>
+                    <td>{{data.id}}</td>
+                    <td>{{data.name}}</td>
+                    <td>{{data.price}}</td>
+                    
+                    <td><a href="/delete/{{data.id}}">ลบ</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

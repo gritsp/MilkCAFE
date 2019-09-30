@@ -1,0 +1,8 @@
+01 tea 30
+02 coffee 30
+03 milk 30
+04 coco 30
+05 ch 30
+06 greentea 30
+07 hotcoffe 30
+08 hotcoffe 30
